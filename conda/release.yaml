@@ -3,9 +3,6 @@ channels:
   - nodefaults
   - conda-forge
 dependencies:
-  - python
-  - poetry >=1.5
-  - nodejs >=18.17 # used by semantic-release
+  - python >=3.10
+  - uv
   - pip
-  - pip:
-      - makim>=1.29.0

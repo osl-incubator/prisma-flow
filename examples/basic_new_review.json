@@ -1,0 +1,33 @@
+{
+  "template": "prisma_2020_new_databases_registers",
+  "title": "Example PRISMA Flow Diagram",
+  "identification": {
+    "records_identified_databases": 1240,
+    "records_identified_registers": 50
+  },
+  "screening": {
+    "records_removed_duplicates": 210,
+    "records_removed_automation": 0,
+    "records_removed_other": 0,
+    "records_screened": 1080,
+    "records_excluded": 950
+  },
+  "eligibility": {
+    "reports_sought": 130,
+    "reports_not_retrieved": 10,
+    "reports_assessed": 120,
+    "reports_excluded": {
+      "Wrong population": 30,
+      "Wrong intervention": 20,
+      "Wrong outcome": 15,
+      "Not primary research": 15
+    }
+  },
+  "included": {
+    "studies_included": 40
+  },
+  "metadata": {
+    "review_id": "example-new-review",
+    "authors": ["Open Science Labs Incubator contributors"]
+  }
+}

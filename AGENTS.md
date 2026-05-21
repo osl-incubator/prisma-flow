@@ -1,92 +1,78 @@
-# Prisma Flow Contributor Guide
+# prisma-flow Contributor Guide
 
 This file is the shared operating manual for AI contributors working in
-`prisma-flow`. Use it to keep implementation style, review standards, and
-project workflow consistent across agents.
+`prisma-flow`.
 
-## Current Scope
+## Project identity
 
-Prisma Flow is currently in scaffold mode. The repository contains project
-infrastructure only: package metadata, tests, linting, documentation, CI, and
-release automation.
+- PyPI package: `prisma-flow`
+- Python import package: `prismaflow`
+- CLI command: `prisma-flow`
+- Repository: `osl-incubator/prisma-flow`
+- Build backend: Hatchling
+- Package manager: uv
+- Runtime: Python 3.10+
 
-Do not add Prisma Flow-specific runtime behavior until the package plan is
-provided.
+## Design constraints
 
-## Project Snapshot
+`prisma-flow` treats PRISMA diagrams as structured, template-based documents,
+not arbitrary graph-layout problems.
 
-- Distribution package: `prisma-flow`
-- Python import package: `prisma_flow`
-- Runtime: Python `>=3.10,<4`
-- License: BSD 3-Clause
-- Docs stack: MkDocs Material
-- Task runner: Makim via `.makim.yaml`
-- Package manager/build backend: Poetry
+Required base-install outputs:
 
-## Repository Layout
+- SVG via pure Python
+- HTML with embedded SVG
+- Mermaid text only
+- JSON input/output
 
-- `src/prisma_flow/`: Python package scaffold
-- `tests/`: `pytest` test suite
+Optional outputs:
+
+- YAML via `prisma-flow[yaml]`
+- PNG via `prisma-flow[png]` when a pip/uv-installable backend is available
+
+Do not add required dependencies on Graphviz, Cairo, CairoSVG, Node, Mermaid
+CLI, Inkscape, Playwright, browser engines, Matplotlib, Plotly, or other system
+rendering stacks.
+
+## Repository layout
+
+- `src/prismaflow/models.py`: Pydantic data models and public methods
+- `src/prismaflow/validation.py`: validation report objects and count checks
+- `src/prismaflow/templates/`: PRISMA template layout builders
+- `src/prismaflow/layout/`: geometry, layout dataclasses, overlap checks
+- `src/prismaflow/renderers/`: SVG, HTML, Mermaid, optional PNG renderer
+- `src/prismaflow/io/`: JSON and optional YAML helpers
+- `src/prismaflow/cli.py`: command-line interface
+- `examples/`: runnable example inputs/scripts
+- `tests/`: pytest coverage
 - `docs/`: MkDocs documentation
-- `conda/`: development and release environments
-- `.github/workflows/`: CI, docs, and release workflows
-- `.makim.yaml`: local task definitions
-- `.pre-commit-config.yaml`: formatting and quality hooks
 
-## Development Commands
+## Development commands
 
 ```bash
-conda env create -f conda/dev.yaml
-conda activate prismaflow
-poetry config virtualenvs.create false
-poetry install
+uv sync --all-extras --dev
+uv run ruff check .
+uv run ruff format --check .
+uv run mypy src
+uv run pytest
+uv build
 ```
 
-Useful tasks:
+Makim wrappers:
 
 ```bash
 makim prisma-flow.unittests
 makim prisma-flow.typecheck
 makim prisma-flow.lint
 makim prisma-flow.build
-makim docs.build
 makim all.ci
 ```
 
-Direct equivalents:
+## Implementation rules
 
-```bash
-pytest tests -vv
-mypy src tests
-pre-commit run --all-files
-poetry build
-mkdocs build --config-file mkdocs.yaml --strict
-```
-
-## Contribution Rules
-
-1. Keep edits minimal and targeted.
-2. Preserve the package scaffold until an explicit implementation plan is added.
-3. Keep `pyproject.toml`, `.makim.yaml`, pre-commit hooks, and CI workflows in
-   sync when changing tooling.
-4. Keep release-managed version strings aligned in:
-   - `pyproject.toml`
-   - `src/prisma_flow/__init__.py`
-   - `.releaserc.json`
-5. Add or update tests for any future runtime behavior.
-6. Prefer local workspace inspection over remote repository state.
-
-## Quality Gates
-
-Before handing off code, run the narrowest relevant checks. For workflow or
-scaffold changes, prefer:
-
-```bash
-pytest tests -vv
-mypy src tests
-ruff check src tests
-ruff format --check src tests
-poetry check
-poetry build
-mkdocs build --config-file mkdocs.yaml --strict
-```
+1. Keep the base install lightweight.
+2. Keep SVG rendering pure Python.
+3. Keep Mermaid export as text generation only; never invoke Mermaid CLI.
+4. Validate PRISMA count relationships and return structured reports.
+5. Add tests for model, validation, layout, renderer, IO, and CLI changes.
+6. Keep README examples, docs, and examples in sync with public API changes.

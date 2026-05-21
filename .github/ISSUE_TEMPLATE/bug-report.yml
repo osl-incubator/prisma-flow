@@ -59,7 +59,7 @@ body:
       label: Prisma Flow version
       description: >-
         Paste the installed Prisma Flow version, if available. For example:
-        python -c "import prisma_flow; print(prisma_flow.__version__)"
+        python -c "import prismaflow; print(prismaflow.__version__)"
       render: console
     validations:
       required: false
