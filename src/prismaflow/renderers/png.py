@@ -62,7 +62,14 @@ class PNGRenderer:
 
         svg = SVGRenderer().render(layout)
         tree = resvg.usvg.Tree.from_str(svg, options)
-        png = cast(bytes, resvg.render(tree, self._transform()))
+        png = cast(
+            bytes,
+            resvg.render(
+                tree,
+                self._transform(),
+                bg_color=(255, 255, 255, 255),
+            ),
+        )
         if path is not None:
             Path(path).write_bytes(png)
         return png
@@ -74,7 +81,7 @@ class PNGRenderer:
           type: Transform
           description: Return value.
         """
-        return (self.scale, 0.0, 0.0, self.scale, 0.0, 0.0)
+        return (self.scale, 0.0, 0.0, 0.0, self.scale, 0.0)
 
 
 def _load_resvg() -> Any:
