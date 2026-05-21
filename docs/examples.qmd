@@ -24,6 +24,6 @@ The script writes SVG, HTML, Mermaid, and JSON outputs to `examples/output/`.
 YAML input requires the optional YAML extra:
 
 ```bash
-uv add "prisma-flow[yaml]"
+pip install "prisma-flow[yaml]"
 prisma-flow render examples/basic_new_review.yaml -o examples/output/basic_new_review.svg
 ```

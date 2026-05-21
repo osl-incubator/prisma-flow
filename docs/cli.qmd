@@ -46,6 +46,12 @@ Render Mermaid text:
 prisma-flow render review.json -f mermaid -o prisma.mmd
 ```
 
+Render PNG when `prisma-flow[png]` is installed:
+
+```bash
+prisma-flow render review.json -f png -o prisma.png
+```
+
 ## Format inference
 
 When `--format` is omitted, the CLI infers the format from the output extension.

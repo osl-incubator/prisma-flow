@@ -28,7 +28,7 @@ syntheses, and literature review workflows.
 - Mermaid text export without Mermaid CLI
 - JSON input/output in the base install
 - Optional YAML input/output via `prisma-flow[yaml]`
-- Optional PNG method that clearly reports the missing optional dependency
+- Optional PNG export via `prisma-flow[png]`
 - Inline SVG display in notebook frontends
 - Python API and `prisma-flow` command-line interface
 - PRISMA count validation with errors and warnings
@@ -39,22 +39,16 @@ syntheses, and literature review workflows.
 pip install prisma-flow
 ```
 
-or:
-
-```bash
-uv add prisma-flow
-```
-
 Optional YAML support:
 
 ```bash
-uv add "prisma-flow[yaml]"
+pip install "prisma-flow[yaml]"
 ```
 
-Optional PNG support, when a supported backend is added:
+Optional PNG support:
 
 ```bash
-uv add "prisma-flow[png]"
+pip install "prisma-flow[png]"
 ```
 
 ## Python API

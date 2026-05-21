@@ -76,5 +76,13 @@ flowchart TD
 ## PNG
 
 PNG export is optional and intentionally not part of the required rendering
-stack in v0.1. If requested without an available backend, the package raises an
+stack. Install `prisma-flow[png]` to enable rasterization through the optional
+`resvg` backend:
+
+```python
+png = flow.to_png()
+flow.to_png("prisma.png")
+```
+
+If the optional backend is not installed, the package raises an
 `OptionalDependencyError` with installation guidance.

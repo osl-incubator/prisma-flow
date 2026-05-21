@@ -10,12 +10,6 @@ Install from PyPI with `pip`:
 pip install prisma-flow
 ```
 
-or with `uv`:
-
-```bash
-uv add prisma-flow
-```
-
 The base install supports:
 
 - JSON input and output
@@ -31,20 +25,14 @@ The base install supports:
 pip install "prisma-flow[yaml]"
 ```
 
-or:
-
-```bash
-uv add "prisma-flow[yaml]"
-```
-
 ## Optional PNG support
 
-PNG export is intentionally optional. In v0.1, `to_png()` and
-`prisma-flow render --format png` raise a clear optional-dependency error rather
-than adding a required rendering stack.
+PNG export is intentionally optional and uses the pip-installable `resvg`
+backend. Install the PNG extra to enable `to_png()` and
+`prisma-flow render --format png`:
 
 ```bash
-uv add "prisma-flow[png]"
+pip install "prisma-flow[png]"
 ```
 
 ## Development install

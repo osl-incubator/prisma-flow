@@ -22,7 +22,7 @@ These work without optional extras:
 | Extra | Purpose |
 |---|---|
 | `prisma-flow[yaml]` | YAML input/output through PyYAML. |
-| `prisma-flow[png]` | Future optional PNG backend. |
+| `prisma-flow[png]` | PNG rasterization through the optional `resvg` backend. |
 
 ## Not required
 

@@ -17,7 +17,8 @@ def test_cli_render_svg(tmp_path: Path) -> None:
     assert output.read_text(encoding="utf-8").startswith("<?xml")
 
 
-def test_cli_png_reports_optional_dependency(capsys) -> None:  # type: ignore[no-untyped-def]
+def test_cli_render_png(tmp_path: Path) -> None:
+    output = tmp_path / "prisma.png"
     exit_code = main(
         [
             "render",
@@ -25,9 +26,8 @@ def test_cli_png_reports_optional_dependency(capsys) -> None:  # type: ignore[no
             "--format",
             "png",
             "--output",
-            "prisma.png",
+            str(output),
         ]
     )
-    captured = capsys.readouterr()
-    assert exit_code == 2
-    assert "prisma-flow[png]" in captured.err
+    assert exit_code == 0
+    assert output.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")

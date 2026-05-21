@@ -59,9 +59,7 @@ def _yaml_module() -> _YamlModule:
         raise OptionalDependencyError(
             "YAML support requires the optional dependency.\n\n"
             "Install it with:\n\n"
-            '  pip install "prisma-flow[yaml]"\n\n'
-            "or:\n\n"
-            '  uv add "prisma-flow[yaml]"'
+            '  pip install "prisma-flow[yaml]"'
         ) from exc
     module: _YamlModule = yaml
     return module
