@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.1.2](https://github.com/osl-incubator/prisma-flow/compare/0.1.1...0.1.2) (2026-05-21)
+
+
+### Bug Fixes
+
+* Fix release workflow ([2b3ecf8](https://github.com/osl-incubator/prisma-flow/commit/2b3ecf8a06c8c4b205430295c2ef32ba2f91b2fa))
+
 ## [0.1.1](https://github.com/osl-incubator/prisma-flow/compare/0.1.0...0.1.1) (2026-05-21)
 
 
