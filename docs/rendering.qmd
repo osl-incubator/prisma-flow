@@ -25,7 +25,7 @@ The SVG renderer supports:
 - rectangles
 - arrows
 - side boxes
-- PRISMA 2020-style header, stage labels, footnotes, and source citation
+- PRISMA 2020-style header and stage labels
 - wrapped multiline text
 - escaped user text
 - embedded CSS
@@ -67,7 +67,7 @@ Example output:
 
 ```mermaid
 flowchart TD
-    A["Records identified from*:<br/>Databases (n = 1240)"]
+    A["Records identified from:<br/>Databases (n = 1240)"]
     B["Records removed before screening"]
     A --> B
 ```

@@ -21,7 +21,7 @@ def test_layout_contains_expected_nodes() -> None:
     assert layout.node_by_id("screening_label").text == "Screening"
     assert layout.node_by_id("included_label").text == "Included"
     assert layout.node_by_id("identified").text.startswith("Records identified")
-    assert layout.node_by_id("included").text.startswith("Studies included")
+    assert layout.node_by_id("included").text.startswith("New studies included")
 
 
 def test_layout_follows_prisma_2020_visual_flow() -> None:

@@ -43,8 +43,6 @@ class Prisma2020NewTemplate:
         reports_excluded_y = 478.0
         included_y = 642.0
         included_height = 86.0
-        notes_x = 28.0
-        notes_width = 690.0
         identification = flow.identification
         screening = flow.screening
         eligibility = flow.eligibility
@@ -59,7 +57,7 @@ class Prisma2020NewTemplate:
                     side_x + side_width - main_x,
                     header_height,
                 ),
-                text="Identification of studies via databases and registers",
+                text="Identification of new studies via databases and registers",
                 kind="header",
                 css_class="process-header",
             ),
@@ -103,7 +101,7 @@ class Prisma2020NewTemplate:
                 id="identified",
                 rect=Rect(main_x, identified_y, box_width, identification_height),
                 text=(
-                    "Records identified from*:\n"
+                    "Records identified from:\n"
                     f"Databases (n = {identification.records_identified_databases})\n"
                     f"Registers (n = {identification.records_identified_registers})"
                 ),
@@ -114,7 +112,7 @@ class Prisma2020NewTemplate:
                 rect=Rect(side_x, identified_y, side_width, identification_height),
                 text=(
                     "Records removed before screening:\n"
-                    "Duplicate records removed\n"
+                    "Duplicate records\n"
                     f"(n = {screening.records_removed_duplicates})\n"
                     "Records marked as ineligible by automation tools\n"
                     f"(n = {screening.records_removed_automation})\n"
@@ -132,7 +130,7 @@ class Prisma2020NewTemplate:
             DiagramNode(
                 id="records_excluded",
                 rect=Rect(side_x, screened_y, side_width, box_height),
-                text=f"Records excluded**\n(n = {screening.records_excluded})",
+                text=f"Records excluded\n(n = {screening.records_excluded})",
                 kind="exclusion",
             ),
             DiagramNode(
@@ -169,50 +167,10 @@ class Prisma2020NewTemplate:
             DiagramNode(
                 id="included",
                 rect=Rect(main_x, included_y, box_width, included_height),
-                text=(f"Studies included in review\n(n = {included.studies_included})"),
+                text=(
+                    f"New studies included in review\n(n = {included.studies_included})"
+                ),
                 kind="stage",
-            ),
-            DiagramNode(
-                id="database_note",
-                rect=Rect(notes_x, 762.0, notes_width, 44.0),
-                text=(
-                    "*Consider, if feasible to do so, reporting the number of "
-                    "records identified from each database or register searched "
-                    "(rather than the total number across all databases/registers)."
-                ),
-                kind="note",
-                css_class="footnote",
-            ),
-            DiagramNode(
-                id="automation_note",
-                rect=Rect(notes_x, 816.0, notes_width, 38.0),
-                text=(
-                    "**If automation tools were used, indicate how many records "
-                    "were excluded by a human and how many were excluded by "
-                    "automation tools."
-                ),
-                kind="note",
-                css_class="footnote",
-            ),
-            DiagramNode(
-                id="source_citation",
-                rect=Rect(notes_x, 900.0, notes_width, 40.0),
-                text=(
-                    "From: Page MJ, McKenzie JE, Bossuyt PM, Boutron I, "
-                    "Hoffmann TC, Mulrow CD, et al. The PRISMA 2020 statement: "
-                    "an updated guideline for reporting systematic reviews. "
-                    "BMJ. 2021;372:n71. doi: 10.1136/bmj.n71"
-                ),
-                kind="note",
-                css_class="source",
-            ),
-            DiagramNode(
-                id="source_link",
-                rect=Rect(214.0, 948.0, 332.0, 18.0),
-                text="For more information, visit: http://www.prisma-statement.org/",
-                kind="note",
-                href="https://www.prisma-statement.org/",
-                css_class="source-link",
             ),
         ]
 
@@ -281,7 +239,7 @@ class Prisma2020NewTemplate:
 
         return DiagramLayout(
             width=740.0,
-            height=982.0,
+            height=750.0,
             nodes=nodes,
             edges=edges,
             title=flow.title,
