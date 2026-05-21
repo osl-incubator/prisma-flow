@@ -1,6 +1,14 @@
 # Release Notes
 ---
 
+# [0.2.0](https://github.com/osl-incubator/prisma-flow/compare/0.1.2...0.2.0) (2026-05-21)
+
+
+### Features
+
+* Add support for notebook display ([eaff63e](https://github.com/osl-incubator/prisma-flow/commit/eaff63e2c9ff7f46ccfd6047e4499a71059caeff))
+* Improve diagram layout/style ([f3e107f](https://github.com/osl-incubator/prisma-flow/commit/f3e107f492adb418f9084b12cc951eaa3a691678))
+
 ## [0.1.2](https://github.com/osl-incubator/prisma-flow/compare/0.1.1...0.1.2) (2026-05-21)
 
 
