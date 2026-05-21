@@ -1,6 +1,14 @@
 # Release Notes
 ---
 
+## [0.4.1](https://github.com/osl-incubator/prisma-flow/compare/0.4.0...0.4.1) (2026-05-21)
+
+
+### Bug Fixes
+
+* Fix box margin/padding, and fix title usage ([ea72bd5](https://github.com/osl-incubator/prisma-flow/commit/ea72bd5130a7c4ea2694d2a2c6a437669031e6c0))
+* Fix the png generation ([f7fda0e](https://github.com/osl-incubator/prisma-flow/commit/f7fda0e1809151e830a92dc6456f1766f9dbe53f))
+
 # [0.4.0](https://github.com/osl-incubator/prisma-flow/compare/0.3.0...0.4.0) (2026-05-21)
 
 
